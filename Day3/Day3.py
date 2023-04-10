@@ -37,24 +37,19 @@ print(model.predict(X[:5]))
 
 print(y[:5])
 
-
-y_pred = model.predict(X)
-
 print(y_pred)
 
 mask = y_pred == y
 
-print(mask.sum()/y.shape[0])
+print(y[mask].sum()/y.shape[0])
 
-print(model.score(X,y))
+print(confusion_matrix(y_test,y_pred))
 
-print(confusion_matrix(y,y_pred))
+print(precision_score(y_test,y_pred))
 
-print(precision_score(y,y_pred))
+print(recall_score(y_test,y_pred))
 
-print(recall_score(y,y_pred))
-
-print(f1_score(y,y_pred))
+print(f1_score(y_test,y_pred))
 
 print("accuracy :",accuracy_score(y_test,y_pred))
 print("precision :",precision_score(y_test,y_pred))
