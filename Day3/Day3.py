@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import roc_curve,precision_recall_fscore_support
 
 
-df = pd.read_csv('titanic.csv')
+df = pd.read_csv('../titanic.csv')
 
 df['Male'] = df['Sex'] == 'male'
 

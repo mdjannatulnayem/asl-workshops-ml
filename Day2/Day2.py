@@ -4,7 +4,7 @@ import numpy as np
 pd.options.display.max_columns = 7
 
 # reading the csv file
-df = pd.read_csv('titanic.csv')
+df = pd.read_csv('../titanic.csv')
 
 # prints first 5 row
 print(df.head())
