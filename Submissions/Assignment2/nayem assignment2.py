@@ -44,74 +44,24 @@ df['smoker'] = df['smoker'] == 'Current'
 
 # print(df)
 
-df = df.dropna()
+# df = df.dropna()
+
+df = df.fillna(0)
+
+# print(df)
 
 # print(df.shape)
 
-# df['malignent'] = df['days_to_cancer'] > 0
+df['malignent'] = df['days_to_cancer'] > 0
 
 # print(df)
 
 # print((df['malignent'] == True).count)
 
-# X = df[['age','gender','race','smoker']].values
-# y = df['malignent'].values
+X = df[['age','gender','race','smoker']].values
+y = df['malignent'].values
 
-# X_train, X_test, y_train, y_test = split(X, y,train_size=0.7)
-
-# model = LgR()
-# model.fit(X_train,y_train)
-
-# y_pred = model.predict(X_test)
-
-# print("Accuaracy: ",acc(y_test,y_pred))
-
-# print("Precision: ",prec(y_test,y_pred))
-
-# print("Recall: ",recall(y_test,y_pred))
-
-# print("F1 score: ",f1(y_test,y_pred))
-
-
-
-
-# Let's creat negative classes!
-# Let's creat negative classes!
-
-# Let's creat negative classes!
-# Let's creat negative classes!
-
-X = df['stage_of_cancer']
-
-stage = []
-for x in X:
-    if (x not in stage):
-        stage.append(x)
-
-# print(stage)
-
-df['stage_of_cancer'] = assign_matching_indices(df['stage_of_cancer'],stage)
-
-# print(df['stage_of_cancer'])
-
-array = []
-for x in df['stage_of_cancer']:
-    if(x == 0 or x == 6):
-        array.append(False)
-    else:
-        array.append(True)
-
-# print(array)
-
-df['malignent2'] = array
-
-# print(df['malignent2'])
-
-
-X2 = df[['age','gender','race','smoker']].values
-y2 = df['malignent2'].values
-
-X_train, X_test, y_train, y_test = split(X2, y2,train_size=0.7)
+X_train, X_test, y_train, y_test = split(X, y,train_size=0.6)
 
 model = LgR()
 model.fit(X_train,y_train)
@@ -125,3 +75,56 @@ print("Precision: ",prec(y_test,y_pred))
 print("Recall: ",recall(y_test,y_pred))
 
 print("F1 score: ",f1(y_test,y_pred))
+
+
+
+# Let's creat negative classes!
+# Let's creat negative classes!
+
+# Let's creat negative classes!
+# Let's creat negative classes!
+
+# X = df['stage_of_cancer']
+
+# stage = []
+# for x in X:
+#     if (x not in stage):
+#         stage.append(x)
+
+# # print(stage)
+
+# df['stage_of_cancer'] = assign_matching_indices(df['stage_of_cancer'],stage)
+
+# # print(df['stage_of_cancer'])
+
+# array = []
+# for x in df['stage_of_cancer']:
+#     if(x == 0 or x == 6):
+#         array.append(False)
+#     else:
+#         array.append(True)
+
+# # print(array)
+
+# df['malignent2'] = array
+
+# # print(df['malignent2'])
+
+
+# X2 = df[['age','gender','race','smoker']].values
+# y2 = df['malignent2'].values
+
+# X_train, X_test, y_train, y_test = split(X2, y2,train_size=0.7)
+
+# model = LgR()
+# model.fit(X_train,y_train)
+
+# y_pred = model.predict(X_test)
+
+# print("Accuaracy: ",acc(y_test,y_pred))
+
+# print("Precision: ",prec(y_test,y_pred))
+
+# print("Recall: ",recall(y_test,y_pred))
+
+# print("F1 score: ",f1(y_test,y_pred))
